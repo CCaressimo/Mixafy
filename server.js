@@ -42,9 +42,10 @@ app.get("/songlist", (req, res) => {
   res.render("songs");
 });
 
-app.get("/playlist/:genre", async (req, res) => {
+app.get("//:genre", async (req, res) => {
   const { genre } = req.params;
   var mix = await Mix.findAll({ where: { genre_id: `${genre}` } });
+  // Mixes.prepare("select * from users order by rand() limit 5");
   console.log(mix);
   res.render("playlist", {
         locals: {
@@ -53,6 +54,7 @@ app.get("/playlist/:genre", async (req, res) => {
     });
   
 });
+
 
 server.listen(port, () => {
   console.log(`API running on port ${port}`);
