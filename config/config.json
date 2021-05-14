@@ -4,7 +4,8 @@
     "password": "QMsmhtqNMiDKVpXLAcDqse2EKRhb4kgC",
     "database": "uxpnkssk",
     "host": "isilo.db.elephantsql.com",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "content_security_policy": "iframe-src, spotify.com https://open.spotify.com/embed/track/*"
   },
   "test": {
     "username": "uxpnkssk",
@@ -18,6 +19,7 @@
     "password": "QMsmhtqNMiDKVpXLAcDqse2EKRhb4kgC",
     "database": "uxpnkssk",
     "host": "isilo.db.elephantsql.com",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "content_security_policy": "iframe-src, spotify.com https://open.spotify.com/embed/track/*"
   }
 }

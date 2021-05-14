@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class Mixafy extends Model {
+  class Mix extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   };
-  Mixafy.init({
+  Mix.init({
     artist: DataTypes.STRING,
     song: DataTypes.STRING,
     shared_link: DataTypes.STRING,
@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
     genre_id: DataTypes.STRING
   }, {
     sequelize,
-    modelName: 'Mixafy',
+    modelName: 'Mix',
   });
-  return Mixafy;
+  return Mix;
 };

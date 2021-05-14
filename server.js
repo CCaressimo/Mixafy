@@ -22,14 +22,14 @@ const morgan = require("morgan");
 const logger = morgan("tiny");
 app.use(logger);
 
-const helmet = require("helmet");
-app.use(helmet());
+
 
 app.use(express.static("public/css/app.js"));
 
 const server = http.createServer(app);
 
-const { Mixafy } = require("./models");
+const { Mix } = require("./models");
+const db = require("./models");
 
 app.get("/", (req, res) => {
   console.log(req.url);
@@ -44,9 +44,14 @@ app.get("/songlist", (req, res) => {
 
 app.get("/playlist/:genre", async (req, res) => {
   const { genre } = req.params;
-  var mix = await Mixafy.findAll({ where: { genre_id: `${genre}` } });
+  var mix = await Mix.findAll({ where: { genre_id: `${genre}` } });
   console.log(mix);
-  res.render("playlist");
+  res.render("playlist", {
+        locals: {
+          data: mix
+      }
+    });
+  
 });
 
 server.listen(port, () => {
