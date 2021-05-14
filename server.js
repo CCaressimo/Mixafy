@@ -31,30 +31,30 @@ const server = http.createServer(app);
 const { Mix } = require("./models");
 const db = require("./models");
 
-app.get("/", async (req, res) => {
-  const { genre } = req.params;
-  var mix = await Mix.findAll({ where: { genre_id: `${genre}` } });
-  console.log("request path is:" + req.path);
-  console.log(mix);
-  res.render("index", {
-    locals: {
-      data: mix,
-      path: req.path,
-    },
-  });
+app.get("/", (req, res) => {
+  res.render("index");
 });
 
-app.get("/songlist", (req, res) => {
-  console.log("request path is:" + req.path);
-  console.log(db);
-  res.render("songs");
+app.get("/songlist", async (req, res) => {
+  const { artist } = req.params
+  var mix = await Mix.findAll({ where: { artist: `${artist}` } })
+  console.log(mix);
+  res.render("songs", {
+    locals: {
+      data: mix,
+    },
+  });
 });
 
 app.get("/playlist/:genre", async (req, res) => {
   const { genre } = req.params;
   var mix = await Mix.findAll({ where: { genre_id: `${genre}` } });
-  // Mixes.prepare("select * from users order by rand() limit 5");
-  console.log(mix);
+
+  //   SELECT "genre_id" FROM "Mixes"
+  // ORDER BY random()
+  // limit 15;
+
+  // console.log(mix);
   res.render("playlist", {
         locals: {
           data: mix
