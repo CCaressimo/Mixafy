@@ -31,9 +31,17 @@ const server = http.createServer(app);
 const { Mix } = require("./models");
 const db = require("./models");
 
-app.get("/", (req, res) => {
-  console.log(req.url);
-  res.render("index");
+app.get("/", async (req, res) => {
+  const { genre } = req.params;
+  var mix = await Mix.findAll({ where: { genre_id: `${genre}` } });
+  console.log("request path is:" + req.path);
+  console.log(mix);
+  res.render("index", {
+    locals: {
+      data: mix,
+      path: req.path,
+    },
+  });
 });
 
 app.get("/songlist", (req, res) => {
@@ -42,7 +50,7 @@ app.get("/songlist", (req, res) => {
   res.render("songs");
 });
 
-app.get("//:genre", async (req, res) => {
+app.get("/playlist/:genre", async (req, res) => {
   const { genre } = req.params;
   var mix = await Mix.findAll({ where: { genre_id: `${genre}` } });
   // Mixes.prepare("select * from users order by rand() limit 5");
