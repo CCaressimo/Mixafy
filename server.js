@@ -1,7 +1,7 @@
 const http = require("http");
 
 const hostname = "127.0.0.1";
-const port = 3600;
+const port = process.env.port || 3600;
 
 const express = require("express");
 const bodyParser = require("body-parser");
