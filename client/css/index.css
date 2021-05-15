@@ -1,14 +1,15 @@
 .jumbotron {
-      background-image: url("../images/Capture.PNG");
-      background-size: cover;
-      position: relative;
+  background-image: url("../images/Capture.PNG");
+  background-size: cover;
+  position: relative;
 }
 
 body {
-    background-image: url(../images/2309522.jpg);
-    background-color: #3B77AC;
-    background-size: cover;
-    position: relative;
+  background-image: url(../images/2309522.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  filter: blur(1px);
 }
 
 image {
@@ -19,16 +20,15 @@ image {
 
 }
 
-
 h1 {
-    text-align: center;
-    color: #DAF6F8;
+  text-align: center;
+  color: #DAF6F8;
 
 }
 
 p {
-    text-align: center;
-    color: #3F3189;
+  text-align: center;
+  color: #DAF6F8;
 }
 
 #main {
