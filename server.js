@@ -28,7 +28,7 @@ app.use(express.static("public/css/app.js"));
 
 const server = http.createServer(app);
 
-const { Mix } = require("./models");
+const { Mix, sequelize } = require("./models");
 const db = require("./models");
 
 app.get("/", (req, res) => {
@@ -46,9 +46,16 @@ app.get("/songlist", async (req, res) => {
   });
 });
 
+
 app.get("/playlist/:genre", async (req, res) => {
   const { genre } = req.params;
-  var mix = await Mix.findAll({ where: { genre_id: `${genre}` } });
+  const { shuffle } = req.params;
+  var mix = await Mix.findAll({
+    where: { genre_id: `${genre}` },
+    "order by": "random()",
+    limit: 20,
+  });
+
 
   //   SELECT "genre_id" FROM "Mixes"
   // ORDER BY random()
