@@ -37,8 +37,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/songlist", async (req, res) => {
-  const { artist } = req.params
-  var mix = await Mix.findAll({ where: { artist: `${artist}` } })
+  var mix = await Mix.findAll()
   console.log(mix);
   res.render("songs", {
     locals: {
