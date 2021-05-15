@@ -1,9 +1,8 @@
 body {
-  background-image: url("../images/wp2453413.jpg");
+  background-image: url("../images/Untitled\ design\ \(10\).jpg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-attachment: fixed;
-  filter: blur(.8px);
 }
 
 .button {
@@ -17,4 +16,5 @@ h4  {
 }
 iframe {
     padding: 10px;
+    filter: blur(.8px);
 }
