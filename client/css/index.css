@@ -1,4 +1,11 @@
+.jumbotron {
+      background-image: url("../images/Capture.PNG");
+      background-size: cover;
+      position: relative;
+}
+
 body {
+    background-image: url(../images/2309522.jpg);
     background-color: #3B77AC;
     background-size: cover;
     position: relative;
@@ -14,12 +21,14 @@ image {
 
 
 h1 {
-    color: #3F3189;
+    text-align: center;
+    color: #DAF6F8;
 
 }
 
 p {
-    color: #A341B1;
+    text-align: center;
+    color: #3F3189;
 }
 
 #main {
