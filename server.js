@@ -37,7 +37,9 @@ app.get("/", (req, res) => {
 });
 
 app.get("/songlist", async (req, res) => {
-  var mix = await Mix.findAll()
+  var mix = await Mix.findAll({
+    order: sequelize.literal("artist ASC"),
+  });
   console.log(mix);
   res.render("songs", {
     locals: {
