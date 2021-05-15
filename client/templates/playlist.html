@@ -9,21 +9,23 @@
     <link rel="stylesheet" href="../css/playlist.css">
 </head>
 <body>
-    <div class="button">
-        <span>
-            <a class="btn btn-outline-info" href="../" role="button" type="submit" value="Submit">BACK</a>
-            <a class="btn btn-outline-info" href="../songlist" role="button">Full Song List</a>
-        </span>
-    </div>
+    <div class="container">
+        <div class="button">
+            <span>
+                <a class="btn btn-outline-info" href="../" role="button" type="submit" value="Submit">BACK</a>
+                <a class="btn btn-outline-info" href="../songlist" role="button">Full Song List</a>
+            </span>
+        </div>
 
-    <section>
-        <h4>Playlist</h4>
-        <form action="../../server.js" method="POST" id="playlist_generator">
-            ${data.map(song => {
-                return `<iframe src="${song.embed_link}" width="300" height="100" frameborder="5" allowtransparency="true" allow="encrypted-media"></iframe>`
-            }).join('')}
-        </form>
-    </section>
+        <section>
+            <h4>Playlist</h4>
+            <form action="../../server.js" method="POST" id="playlist_generator">
+                ${data.map(song => {
+                    return `<iframe src="${song.embed_link}" width="300" height="100" frameborder="5" allowtransparency="true" allow="encrypted-media"></iframe>`
+                }).join('')}
+            </form>
+        </section>
+    </div>
     <script src="../js/script.js"></script>
 </body>
 </html>
