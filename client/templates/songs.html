@@ -16,7 +16,17 @@
             </span>
         </div>
         ${data.map(list => {
-            return `<span><h3>${list.artist}</h3><h3><a href="${list.shared_link}">${list.song}</a></h3><h3>${list.genre_id}</h3></span>`
+            return `<br>
+                        <div class="card" style="width: 18rem;">
+                        <div class="card-header">
+                            ${list.artist}
+                        </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item"><a href="${list.shared_link}">${list.song}</a></li>
+                                <li class="list-group-item">${list.genre_id}</li>
+                            </ul>
+                        </div>
+                        <br>`
         }).join('')}
     </body>
 </html>
