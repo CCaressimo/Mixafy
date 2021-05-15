@@ -30,6 +30,7 @@ const server = http.createServer(app);
 
 const { Mix, sequelize } = require("./models");
 const db = require("./models");
+const { randomBytes } = require("crypto");
 
 app.get("/", (req, res) => {
   res.render("index");
@@ -49,10 +50,9 @@ app.get("/songlist", async (req, res) => {
 
 app.get("/playlist/:genre", async (req, res) => {
   const { genre } = req.params;
-  const { shuffle } = req.params;
   var mix = await Mix.findAll({
     where: { genre_id: `${genre}` },
-    "order by": "random()",
+    order: sequelize.random(),
     limit: 20,
   });
 
