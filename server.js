@@ -37,8 +37,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/songlist", async (req, res) => {
-  const { artist } = req.params
-  var mix = await Mix.findAll({ where: { artist: `${artist}` } })
+  var mix = await Mix.findAll()
   console.log(mix);
   res.render("songs", {
     locals: {
@@ -47,6 +46,18 @@ app.get("/songlist", async (req, res) => {
   });
 });
 
+app.get("/playlist/Mixafy", async (req, res) => {
+  var mix = await Mix.findAll({   
+    order: sequelize.random(),
+    limit: 20,
+  });
+  console.log(mix);
+  res.render("playlist", {
+    locals: {
+      data: mix,
+    },
+  });
+});
 
 app.get("/playlist/:genre", async (req, res) => {
   const { genre } = req.params;
@@ -55,13 +66,7 @@ app.get("/playlist/:genre", async (req, res) => {
     order: sequelize.random(),
     limit: 20,
   });
-
-
-  //   SELECT "genre_id" FROM "Mixes"
-  // ORDER BY random()
-  // limit 15;
-
-  // console.log(mix);
+  console.log(mix);
   res.render("playlist", {
         locals: {
           data: mix
@@ -69,7 +74,6 @@ app.get("/playlist/:genre", async (req, res) => {
     });
   
 });
-
 
 server.listen(port, () => {
   console.log(`API running on port ${port}`);
