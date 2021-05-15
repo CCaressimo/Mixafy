@@ -9,24 +9,37 @@
         <link rel="stylesheet" href="../css/songs.css">
     </head>
     <body>
-        <h1>FULL SONG LIST</h1>
-        <div class="button">
+        <div class="container" id="header">
             <span>
-                <a class="btn btn-outline-info" href="../" role="button" type="submit" value="Submit">BACK</a>
+                <div class="button">
+                    <a class="btn btn-outline-info" href="../" role="button" type="submit" value="Submit">BACK</a>
+                </div>
+                <h1>FULL SONG LIST</h1>            
             </span>
         </div>
+
         ${data.map(list => {
             return `<br>
-                        <div class="card" style="width: 18rem;">
-                        <div class="card-header">
-                            ${list.artist}
-                        </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item"><a href="${list.shared_link}">${list.song}</a></li>
-                                <li class="list-group-item">${list.genre_id}</li>
-                            </ul>
-                        </div>
-                        <br>`
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm">
+                                    <div class="card-header">
+                                        ${list.artist}
+                                    </div>
+                                </div>
+                                <div class="col-sm">
+                                    <div class="card-header">
+                                        <a href="${list.shared_link}">${list.song}</a>
+                                    </div>
+                                </div>
+                                <div class="col-sm">
+                                    <div class="card-header">
+                                        ${list.genre_id}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>            
+                    <br>`
         }).join('')}
     </body>
 </html>
