@@ -14,3 +14,9 @@
 * cd Mixafy/
 * npm i
 * npm start
+
+## Instructions:
+
+* Select one of the Genre buttons, or MIX ALL button at the bottom of the page to create a playlist.
+* On the Playlist page, Use the Back button to bring you back to the main page. Use the Full Song List button to take you to the Song list page. Use the Shuffle button to re shuffle you list!
+* On the Full Song List page, click on the song track to take you to the exact song on Spotify.
