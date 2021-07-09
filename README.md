@@ -6,7 +6,7 @@
 
 ### Mixafy utilizes Express, Sequelize, and Bootstrap.
 
-# Deployed on Heroku - https://mixafy.herokuapp.com
+## Deployed on Heroku - https://mixafy.herokuapp.com
 
 ## To clone and run Mixafy 
 
